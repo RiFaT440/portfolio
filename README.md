@@ -52,14 +52,6 @@ All content lives in `index.html`:
 - **Programming and scientific computing:** C, C++, Java, Python, MATLAB, Fortran
 - **Simulation and analysis:** Wolfram Mathematica, COMSOL Multiphysics
 
-## Contact
-
-- Email: [tanvirh539@gmail.com](mailto:tanvirh539@gmail.com)
-- Phone: [+8801568019984](tel:+8801568019984)
-- GitHub: [RiFaT440](https://github.com/RiFaT440)
-- LinkedIn: [asmtanvirhossain](https://www.linkedin.com/in/asmtanvirhossain/)
-- X: [@tanvirri_fat](https://x.com/tanvirri_fat)
-- Facebook: [taNvirRiFat440](https://www.facebook.com/taNvirRiFat440)
 
 ## License
 
