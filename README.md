@@ -2,7 +2,7 @@
 
 Personal portfolio of **A S M Tanvir Hossain (Rifat)**, a web developer who bridges software engineering and scientific simulation.
 
-**Live site:** https://RiFaT440.github.io/
+**Live site:** [https://RiFaT440.github.io/](https://rifat440.github.io/portfolio/)
 
 ## Features
 
