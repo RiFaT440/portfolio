@@ -28,29 +28,6 @@ HTML5 and CSS3, with a few lines of JavaScript for the theme switch.
 
 Open `index.html` in any browser. No setup needed.
 
-## Host on GitHub Pages
-
-1. Create a new repository on GitHub. Naming it `RiFaT440.github.io` puts the site at the root of your GitHub address.
-2. Upload `index.html` and `README.md`, then commit.
-3. Go to **Settings > Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/ (root)`, then **Save**.
-5. Wait 1 to 2 minutes. The site will be live at `https://RiFaT440.github.io/`.
-
-If the page looks unchanged after an update, hard refresh with `Ctrl + Shift + R` (`Cmd + Shift + R` on Mac).
-
-## Customize
-
-All content lives in `index.html`:
-
-- **Text and links:** edit the HTML in each `<section>`
-- **Skill bars:** change the `width` value in each `<b style="width:80%">`
-- **Colors:** edit the variables at the top of the `<style>` block (`--bg`, `--ink`, `--accent`)
-
-## Stack
-
-- **Web development:** HTML5, CSS3, JavaScript, Bootstrap
-- **Programming and scientific computing:** C, C++, Java, Python, MATLAB, Fortran
-- **Simulation and analysis:** Wolfram Mathematica, COMSOL Multiphysics
 
 
 ## License
