@@ -364,7 +364,14 @@ footer div { font-size: 14px; color: var(--ink-muted); }
 </div>
 </div>
 <div class="hero-img-container">
-<img alt="Portrait of Rifat in a navy blazer and light blue shirt, with pink flowers behind him" src="assets/photo.jpg"></div>
+  <img alt="Portrait of A S M Tanvir Hossain (Rifat)" src="assets/photo.jpg" onerror="this.onerror=null; this.replaceWith(document.getElementById('fallback-avatar').content.cloneNode(true));">
+</div>
+<template id="fallback-avatar">
+  <div class="hero-img-placeholder">
+    <i data-lucide="user" style="width: 48px; height: 48px;"></i>
+    <span style="font-weight: 600; font-size: 14px;">A S M Tanvir Hossain</span>
+  </div>
+</template>
 </div>
 
 <section id="about">
