@@ -335,9 +335,36 @@ footer div { font-size: 14px; color: var(--ink-muted); }
 .tools span{color:var(--ink)}
 @media (max-width:520px){.w .long{display:none}.w .short{display:inline}}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Greeting intro */
+.intro{position:fixed;inset:0;z-index:100;background:var(--accent);color:var(--on-accent);
+  display:flex;align-items:center;justify-content:center;
+  clip-path:inset(0 0 0 0 round 0);
+  transition:clip-path .9s cubic-bezier(.76,0,.24,1)}
+.intro.leave{clip-path:inset(0 0 100% 0 round 0 0 50% 50% / 0 0 12vh 12vh)}
+.intro.gone{display:none}
+.intro .word{display:flex;align-items:center;gap:.35em;font-size:clamp(2.6rem,11vw,7rem);font-weight:800;
+  letter-spacing:-.03em;white-space:nowrap;animation:greetIn .38s cubic-bezier(.2,.8,.2,1) both}
+.intro .word::before{content:"";width:.16em;height:.16em;border-radius:50%;background:var(--on-accent);flex:none}
+@keyframes greetIn{from{opacity:0;transform:translateY(.35em)}to{opacity:1;transform:none}}
+.intro .skip{position:absolute;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));
+  background:none;border:1px solid currentColor;color:inherit;font:inherit;font-size:14px;font-weight:600;
+  border-radius:6px;padding:8px 18px;cursor:pointer;opacity:.75}
+.intro .skip:hover{opacity:1}
+.intro :focus-visible{outline-color:var(--on-accent)}
+@media (prefers-reduced-motion: reduce){
+  .intro .word{animation:none}
+  .intro{transition:opacity .3s}
+  .intro.leave{clip-path:none;opacity:0}
+}
 </style>
 </head>
 <body>
+<div class="intro" id="intro" role="status" aria-live="polite">
+  <div class="word" id="word">Hello</div>
+  <button class="skip" id="skip" type="button">Skip</button>
+</div>
+
 <header>
 <a class="w" href="#top"><span class="long">A S M Tanvir Hossain</span><span class="short">Rifat</span></a>
 <a class="hm" href="#about">About</a>
@@ -408,6 +435,29 @@ function isDark(){var t=root.getAttribute("data-theme");return t?t==="dark":!mat
 function paint(){btn.innerHTML=isDark()?SUN:MOON}
 btn.addEventListener("click",function(){root.setAttribute("data-theme",isDark()?"light":"dark");paint()});
 paint();
+</script>
+<script>
+(function(){
+  var greetings=["Hello","Bonjour","Hola","Ciao","Namaste","Salaam","স্বাগতম","こんにちは","Hello"];
+  var step=380,intro=document.getElementById("intro"),word=document.getElementById("word"),
+      skip=document.getElementById("skip"),timers=[],
+      reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function finish(){
+    timers.forEach(clearTimeout);
+    document.body.style.overflow="";
+    intro.classList.add("leave");
+    setTimeout(function(){intro.classList.add("gone")},reduce?350:950);
+  }
+  document.body.style.overflow="hidden";
+  (reduce?[greetings[0]]:greetings).forEach(function(g,i){
+    timers.push(setTimeout(function(){
+      word.textContent=g;word.style.animation="none";void word.offsetWidth;word.style.animation="";
+    },i*step+(i?200:0)));
+  });
+  timers.push(setTimeout(finish,(reduce?1:greetings.length)*step+450));
+  skip.addEventListener("click",finish);
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!intro.classList.contains("gone"))finish()});
+})();
 </script>
 </body>
 </html>
